@@ -2,7 +2,8 @@ package com.iims.models;
 
 public class Employee {
     private int id;
-    private String name, address, contact, departmentName;
+    private String name, address, departmentName;
+    private long contact;
 
     public int getId() {
         return id;
@@ -28,11 +29,11 @@ public class Employee {
         this.address = address;
     }
 
-    public String getContact() {
+    public long getContact() {
         return contact;
     }
 
-    public void setContact(String contact) {
+    public void setContact(long contact) {
         this.contact = contact;
     }
 
@@ -47,7 +48,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int id, String name, String address, String contact, String departmentName) {
+    public Employee(int id, String name, String address, long contact, String departmentName) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -55,7 +56,7 @@ public class Employee {
         this.departmentName = departmentName;
     }
 
-    public Employee(String name, String address, String contact, String departmentName) {
+    public Employee(String name, String address, long contact, String departmentName) {
         this.name = name;
         this.address = address;
         this.contact = contact;

@@ -20,7 +20,7 @@
         <div class="mb-3">
             <label class="form-label">Department Name:</label>
             <input type="text" class="form-control" value="${employee.departmentName}" placeholder="Developer"
-                   name="department Name">
+                   name="departmentName">
         </div>
         <button type="submit" class="btn btn-primary">${action}</button>
     </form>
