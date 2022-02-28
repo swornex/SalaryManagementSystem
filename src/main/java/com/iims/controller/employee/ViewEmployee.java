@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name="view-employee", urlPatterns = "/view-employee")
+@WebServlet(name="employee-view", urlPatterns = "/employee-view")
 public class ViewEmployee extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

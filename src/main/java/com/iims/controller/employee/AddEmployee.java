@@ -43,7 +43,7 @@ public class AddEmployee extends HttpServlet {
                 result = employeeDao.save(employee);
 
             if(result>0){
-                resp.sendRedirect("view-employee");
+                resp.sendRedirect("employee-view");
             }
         }catch(SQLException | ClassNotFoundException e){
             e.printStackTrace();
