@@ -22,7 +22,7 @@ public class AddEmployee extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("action", "Save");
+        req.setAttribute("action", "save");
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("employee/employee-form.jsp");
         requestDispatcher.forward(req,resp);
@@ -41,8 +41,10 @@ public class AddEmployee extends HttpServlet {
 
         try{
                 result = employeeDao.save(employee);
+                System.out.println(employee);
 
             if(result>0){
+                System.out.println("hi");
                 resp.sendRedirect("employee-view");
             }
         }catch(SQLException | ClassNotFoundException e){

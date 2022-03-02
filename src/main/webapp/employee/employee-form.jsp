@@ -19,17 +19,11 @@
                        name="contact">
             </div>
             <div class="col-md align-self-center mb-3">
-                <label class="form-label">Department Name: </label>
-                <select name="departmentName" class="form-select">
-                    <option disabled ${empDepartment != null ? "" : "selected"}> --- Select Department ---</option>
-                    <option value="AI">AI</option>
-                    <option value="Machine Learning">Machine Learning</option>
-                    <option value="Web Developer">Web Developer</option>
-                </select>
+                <label class="form-label">Department:</label>
+                <input type="text" class="form-control" value="${employee.departmentName}" placeholder="AI"
+                       name="departmentName">
             </div>
-            <div class="button d-flex justify-content-center">
-                <a href="${action}" class="btn btn-dark">Submit</a>
-            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
 </div>
