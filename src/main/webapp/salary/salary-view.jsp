@@ -12,6 +12,7 @@
             <th class="text-center">Employee Id</th>
             <th class="text-center">Basic Salary</th>
             <th class="text-center">Allowance</th>
+            <th class="text-center">Total Salary</th>
             <th class="text-center">Action</th>
         </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td class="text-center">${salary.employeeId}</td>
                 <td class="text-center">${salary.basicSalary}</td>
                 <td class="text-center">${salary.allowance}</td>
+                <td class="text-center">${salary.basicSalary + salary.allowance}</td>
                 <td>
                     <a href="salary-form?id=${salary.id}">Edit</a>
                     <a href="salary-view?id=${salary.id}">Delete</a>
