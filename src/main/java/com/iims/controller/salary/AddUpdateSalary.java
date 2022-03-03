@@ -21,7 +21,7 @@ public class AddUpdateSalary extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    HttpSession session = req.getSession();
+        HttpSession session = req.getSession();
         String id = req.getParameter("id");
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("salary/salary-form.jsp");
         try {
@@ -60,7 +60,7 @@ public class AddUpdateSalary extends HttpServlet {
             e.printStackTrace();
         }
 
-        if(result > 0) {
+        if (result > 0) {
             resp.sendRedirect("salary-view");
         }
     }

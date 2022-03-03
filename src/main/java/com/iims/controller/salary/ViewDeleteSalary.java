@@ -13,14 +13,14 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "salary-view", urlPatterns = "/salary-view")
-public class ViewSalary extends HttpServlet {
+public class ViewDeleteSalary extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("salary/salary-view.jsp");
         String id = req.getParameter("id");
         SalaryDao salaryDao = new SalaryDaoImpl();
         try {
-            if(id != null) {
+            if (id != null) {
                 salaryDao.remove(Integer.parseInt(id));
             }
             req.setAttribute("salaries", salaryDao.findAll());

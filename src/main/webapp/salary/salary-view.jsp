@@ -1,4 +1,4 @@
-<%@include file="/templates/header.jsp"%>
+<%@include file="/templates/header.jsp" %>
 
 <h2 class="text-center mt-4 mx-auto">Salary List</h2>
 <div class="container w-75 my-4">
@@ -32,4 +32,4 @@
     </table>
 </div>
 
-<%@include file="/templates/footer.jsp"%>
+<%@include file="/templates/footer.jsp" %>
