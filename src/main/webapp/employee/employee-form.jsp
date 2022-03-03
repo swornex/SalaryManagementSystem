@@ -1,5 +1,5 @@
 <%@include file="/templates/header.jsp"%>
-<h2 class="text-center my-4 text-muted">Add Employee</h2>
+<h2 class="text-center my-4 text-muted fw-normal">Add Employee</h2>
 <div class="container p-4 w-25 shadow rounded">
     <form action="employee-form" method="post">
         <div class="row flex-column p-2">
@@ -23,7 +23,9 @@
                 <input type="text" class="form-control" value="${employee.departmentName}" placeholder="AI"
                        name="departmentName">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-dark" style="width:100%">Submit</button>
+            </div>
         </div>
     </form>
 </div>
