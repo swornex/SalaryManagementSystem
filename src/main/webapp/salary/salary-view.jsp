@@ -1,9 +1,9 @@
 <%@include file="/templates/header.jsp"%>
 
-<h2 class="text-center mt-4 mx-auto">View Employees</h2>
+<h2 class="text-center mt-4 mx-auto">Salary List</h2>
 <div class="container w-75 my-4">
     <div class="btn-wrap d-flex flex-row-reverse">
-        <a href="employee-form" class="btn btn-primary btn-sm">Add Employee</a>
+        <a href="salary-form" class="btn btn-primary btn-sm">Add Salary</a>
     </div>
     <table class="table">
         <thead>
@@ -22,7 +22,10 @@
                 <td class="text-center">${salary.employeeId}</td>
                 <td class="text-center">${salary.basicSalary}</td>
                 <td class="text-center">${salary.allowance}</td>
-
+                <td>
+                    <a href="salary-form?id=${salary.id}">Edit</a>
+                    <a href="salary-view?id=${salary.id}">Delete</a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>

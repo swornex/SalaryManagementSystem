@@ -1,0 +1,32 @@
+package com.iims.controller.salary;
+
+import com.iims.dao.SalaryDao;
+import com.iims.dao.impl.SalaryDaoImpl;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.SQLException;
+
+@WebServlet(name = "salary-view", urlPatterns = "/salary-view")
+public class ViewSalary extends HttpServlet {
+    @Override
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("salary/salary-view.jsp");
+        String id = req.getParameter("id");
+        SalaryDao salaryDao = new SalaryDaoImpl();
+        try {
+            if(id != null) {
+                salaryDao.remove(Integer.parseInt(id));
+            }
+            req.setAttribute("salaries", salaryDao.findAll());
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        requestDispatcher.forward(req, resp);
+    }
+}
