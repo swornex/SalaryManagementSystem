@@ -1,24 +1,29 @@
 <%@ include file="/templates/header.jsp" %>
 
-<h2 class="text-center mt-4">Add Employee</h2>
-<div class="container w-50 mr-0">
+<h2 class="text-center my-4 text-muted fw-normal">Add Salary</h2>
+<div class="container p-4 w-25 shadow rounded">
     <form action="salary-form" method="post">
-        <input type="hidden" value="${salary.id}" name="id">
-        <div class="mb-3">
-            <label class="form-label">Name:</label>
-            <input type="text" class="form-control" value="${salary.employeeId}" placeholder="1" name="employeeId">
+        <div class="row flex-column p-2">
+            <input type="hidden" value="${salary.id}" name="id">
+            <div class="col-md align-self-center mb-3">
+                <label class="form-label">Employee Id:</label>
+                <input type="text" class="form-control" value="${salary.employeeId}" placeholder="1" name="employeeId">
+            </div>
+            <div class="col-md align-self-center mb-3">
+                <label class="form-label">Basic Salary </label>
+                <input type="text" class="form-control" value="${salary.basicSalary}" placeholder="5000"
+                       name="basicSalary">
+            </div>
+            <div class="col-md align-self-center mb-3">
+                <label class="form-label">Allowance:</label>
+                <input type="text" class="form-control" value="${salary.allowance}" placeholder="10000" name="allowance">
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-dark" style="width:100%">${action}</button>
+            </div>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Basic Salary </label>
-            <input type="text" class="form-control" value="${salary.basicSalary}" placeholder="5000"
-                   name="basicSalary">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Allowance:</label>
-            <input type="text" class="form-control" value="${salary.allowance}" placeholder="10000" name="allowance">
-        </div>
-        <button type="submit" class="btn btn-primary">${action}</button>
     </form>
 </div>
 
 <%@ include file="/templates/footer.jsp" %>
+
