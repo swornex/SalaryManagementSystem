@@ -25,7 +25,7 @@ public class AddEmployee extends HttpServlet {
         req.setAttribute("action", "save");
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("employee/employee-form.jsp");
-        requestDispatcher.forward(req,resp);
+        requestDispatcher.forward(req, resp);
 
     }
 
@@ -33,21 +33,21 @@ public class AddEmployee extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int result;
         String name = req.getParameter("name");
-        String address= req.getParameter("address");
+        String address = req.getParameter("address");
         long contact = Long.parseLong(req.getParameter("contact"));
         String departmentName = req.getParameter("departmentName");
 
         Employee employee = new Employee(name, address, contact, departmentName);
 
-        try{
-                result = employeeDao.save(employee);
-                System.out.println(employee);
+        try {
+            result = employeeDao.save(employee);
+            System.out.println(employee);
 
-            if(result>0){
+            if (result > 0) {
                 System.out.println("hi");
                 resp.sendRedirect("employee-view");
             }
-        }catch(SQLException | ClassNotFoundException e){
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

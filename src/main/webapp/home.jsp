@@ -7,10 +7,10 @@
                 <h2 class="display-6 mb-2 text-muted">Welcome to Salary Management System</h2>
             </div>
             <div class="d-flex justify-content-center">
-                <a href="#" class="btn btn-outline-dark mb-3" style="width: 50%">View Employee</a>
+                <a href="employee-view" class="btn btn-outline-dark mb-3" style="width: 50%">View Employee</a>
             </div>
             <div class="d-flex justify-content-center">
-                <a href="#" class="btn btn-outline-dark mb-3" style="width: 50%">View Salary</a>
+                <a href="salary-view" class="btn btn-outline-dark mb-3" style="width: 50%">View Salary</a>
             </div>
         </div>
     </div>
