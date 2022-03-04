@@ -40,7 +40,7 @@ public class AddUpdateSalary extends HttpServlet {
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String id = req.getParameter("id");
         int employeeId = Integer.parseInt(req.getParameter("employeeId"));
         int basicSalary = Integer.parseInt(req.getParameter("basicSalary"));
@@ -49,6 +49,8 @@ public class AddUpdateSalary extends HttpServlet {
         Salary salary = new Salary(employeeId, basicSalary, allowance);
         int result = 0;
 
+        HttpSession session = req.getSession();
+
         try {
             if (id != null) {
                 salary.setId(Integer.parseInt(id));
@@ -56,6 +58,8 @@ public class AddUpdateSalary extends HttpServlet {
             } else {
                 result = salaryDao.save(salary);
             }
+
+            session.removeAttribute("salary");
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
