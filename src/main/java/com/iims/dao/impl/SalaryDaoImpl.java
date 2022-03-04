@@ -31,7 +31,7 @@ public class SalaryDaoImpl implements SalaryDao {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(QUERY);
 
-        while (resultSet.next()){
+        while (resultSet.next()) {
             Salary salary = new Salary();
             salary.setId(resultSet.getInt("id"));
             salary.setEmployeeId(resultSet.getInt("employeeId"));
@@ -52,7 +52,7 @@ public class SalaryDaoImpl implements SalaryDao {
         ResultSet resultSet = preparedStatement.executeQuery();
         Salary salary = null;
 
-        while (resultSet.next()){
+        while (resultSet.next()) {
             salary = new Salary();
             salary.setId(resultSet.getInt("id"));
             salary.setEmployeeId(resultSet.getInt("employeeId"));
