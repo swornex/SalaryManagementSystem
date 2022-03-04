@@ -7,13 +7,13 @@
                 <h2 class="text-center mt-2 mb-4 p-1 text-dark">LOGIN</h2>
                 <div class="mb-3 mx-2">
                     <label class="form-label">Username:</label>
-                    <input type="text" class="form-control" placeholder="admin" name="username">
+                    <input type="text" class="form-control"  value = "${username}" placeholder="admin" name="username">
                 </div>
                 <div class="mb-3 mx-2">
                     <label class="form-label">Password:</label>
                     <input type="password" class="form-control" placeholder="admin123" name="password">
                 </div>
-                <%--            <p class="text-danger">${error}</p>--%>
+                <p class = "text-danger">${error != null ? error : ""}</p>
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-dark">Login</button>
                 </div>

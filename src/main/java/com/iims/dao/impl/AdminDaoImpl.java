@@ -11,11 +11,11 @@ import java.sql.SQLException;
 
 public class AdminDaoImpl implements AdminDao {
     @Override
-    public Admin findOne(String email, String password) throws SQLException, ClassNotFoundException {
-        final String QUERY = "SELECT * FROM admin WHERE email = ? AND password = ?";
+    public Admin findOne(String username, String password) throws SQLException, ClassNotFoundException {
+        final String QUERY = "SELECT * FROM admin WHERE username = ? AND password = ?";
         Connection connection = ConnectionFactory.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
-        preparedStatement.setString(1, email);
+        preparedStatement.setString(1, username);
         preparedStatement.setString(2, password);
         ResultSet resultSet = preparedStatement.executeQuery();
         Admin admin = null;
@@ -23,7 +23,7 @@ public class AdminDaoImpl implements AdminDao {
             admin = new Admin();
             admin.setId(resultSet.getInt("id"));
             admin.setName(resultSet.getString("name"));
-            admin.setEmail(resultSet.getString("email"));
+            admin.setUsername(resultSet.getString("username"));
         }
         return admin;
     }

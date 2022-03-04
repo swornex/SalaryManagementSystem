@@ -2,7 +2,7 @@ package com.iims.models;
 
 public class Admin {
     private int id;
-    private String name, email, password;
+    private String name, username, password;
 
     public int getId() {
         return id;
@@ -20,12 +20,12 @@ public class Admin {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -39,16 +39,16 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(int id, String name, String email, String password) {
+    public Admin(int id, String name, String username, String password) {
         this.id = id;
         this.name = name;
-        this.email = email;
+        this.username = username;
         this.password = password;
     }
 
-    public Admin(String name, String email, String password) {
+    public Admin(String name, String username, String password) {
         this.name = name;
-        this.email = email;
+        this.username = username;
         this.password = password;
     }
 
@@ -57,7 +57,7 @@ public class Admin {
         return "Admin{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
+                ", email='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
