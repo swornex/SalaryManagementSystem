@@ -4,7 +4,6 @@
 <div class="container p-4 w-25 shadow rounded">
     <form action="salary-form" method="post">
         <div class="row flex-column p-2">
-            <input type="hidden" value="${salary.id}" name="id">
             <div class="col-md align-self-center mb-3">
                 <label class="form-label">Employee Id:</label>
                 <input type="text" class="form-control" value="${salary.employeeId}" placeholder="1" name="employeeId">
