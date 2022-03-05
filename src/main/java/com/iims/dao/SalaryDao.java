@@ -12,6 +12,8 @@ public interface SalaryDao {
 
     Salary findOne(int id) throws SQLException, ClassNotFoundException;
 
+    Salary findOneByEmployeeId(int id) throws SQLException, ClassNotFoundException;
+
     int update(Salary salary) throws SQLException, ClassNotFoundException;
 
     int remove(int id) throws SQLException, ClassNotFoundException;

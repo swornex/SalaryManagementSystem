@@ -1,7 +1,10 @@
 package com.iims.controller.salary;
 
+import com.iims.dao.EmployeeDao;
 import com.iims.dao.SalaryDao;
+import com.iims.dao.impl.EmployeeDaoImpl;
 import com.iims.dao.impl.SalaryDaoImpl;
+import com.iims.models.Employee;
 import com.iims.models.Salary;
 
 import javax.servlet.RequestDispatcher;
@@ -43,11 +46,12 @@ public class AddUpdateSalary extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
         String id = (String) session.getAttribute("id");
-        int employeeId = Integer.parseInt(req.getParameter("employeeId"));
+        String employeeId = req.getParameter("employeeId");
         int basicSalary = Integer.parseInt(req.getParameter("basicSalary"));
         int allowance = Integer.parseInt(req.getParameter("allowance"));
 
-        Salary salary = new Salary(employeeId, basicSalary, allowance);
+        Salary salary = new Salary(basicSalary, allowance);
+
         int result = 0;
 
         try {
@@ -55,7 +59,16 @@ public class AddUpdateSalary extends HttpServlet {
                 salary.setId(Integer.parseInt(id));
                 result = salaryDao.update(salary);
             } else {
-                result = salaryDao.save(salary);
+                EmployeeDao employeeDao = new EmployeeDaoImpl();
+                Employee employee = employeeDao.findOne(Integer.parseInt(employeeId));
+                Salary existSalary = salaryDao.findOneByEmployeeId(Integer.parseInt(employeeId));
+
+                if (employee != null && existSalary == null) {
+                    salary.setEmployeeId(Integer.parseInt(employeeId));
+                    result = salaryDao.save(salary);
+                } else {
+                    result = 1;
+                }
             }
 
             session.removeAttribute("salary");
@@ -63,8 +76,8 @@ public class AddUpdateSalary extends HttpServlet {
             e.printStackTrace();
         }
 
-        if (result > 0) {
+        if (result > 0)
             resp.sendRedirect("salary-view");
-        }
+
     }
 }
