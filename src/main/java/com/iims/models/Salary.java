@@ -2,6 +2,15 @@ package com.iims.models;
 
 public class Salary {
     private int id, employeeId, basicSalary, allowance;
+    private String employeeName;
+
+    public String getEmployeeName(){
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName){
+        this.employeeName = employeeName;
+    }
 
     public int getId() {
         return id;

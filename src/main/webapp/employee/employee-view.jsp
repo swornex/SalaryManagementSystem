@@ -4,7 +4,8 @@
 <h2 class="text-center mt-4 mx-auto text-muted fw-normal">View Employees</h2>
 <div class="container w-75 my-4">
     <div class="btn-wrap d-flex flex-row-reverse mb-2">
-        <a href="employee-form" class="btn btn-outline-secondary shadow">Add Employee</a>
+        <a href="salary-view" class="btn btn-outline-secondary shadow">View Salary</a>
+        <a href="employee-form" class="btn btn-outline-secondary shadow mx-2">Add Employee</a>
     </div>
     <table class="table table-hover">
         <thead>

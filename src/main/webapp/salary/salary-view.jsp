@@ -3,14 +3,16 @@
 
 <h2 class="text-center mt-4 mx-auto text-muted fw-normal">Salary List</h2>
 <div class="container w-75 my-4">
+
     <div class="btn-wrap d-flex flex-row-reverse mb-2">
-        <a href="salary-form" class="btn btn-outline-secondary shadow">Add Salary</a>
+        <a href="employee-view" class="btn btn-outline-secondary shadow">View Employee</a>
+        <a href="salary-form" class="btn btn-outline-secondary shadow mx-2">Add Salary</a>
     </div>
     <table class="table">
         <thead>
         <tr class="table-dark">
             <th class="text-center">Id</th>
-            <th class="text-center">Employee Id</th>
+            <th class="text-center">Employee Name</th>
             <th class="text-center">Basic Salary</th>
             <th class="text-center">Allowance</th>
             <th class="text-center">Total Salary</th>
@@ -21,7 +23,7 @@
         <c:forEach items="${salaries}" var="salary">
             <tr>
                 <td class="text-center">${salary.id}</td>
-                <td class="text-center">${salary.employeeId}</td>
+                <td class="text-center">${salary.employeeName}</td>
                 <td class="text-center">${salary.basicSalary}</td>
                 <td class="text-center">${salary.allowance}</td>
                 <td class="text-center">${salary.basicSalary + salary.allowance}</td>

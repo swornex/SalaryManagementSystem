@@ -26,7 +26,8 @@ public class SalaryDaoImpl implements SalaryDao {
     @Override
     public List<Salary> findAll() throws SQLException, ClassNotFoundException {
         List<Salary> salaries = new ArrayList<>();
-        final String QUERY = "SELECT * FROM salary";
+        final String QUERY = "SELECT salary.id, employee.name AS employeeName, salary.basicSalary, salary.allowance FROM salary " +
+                "INNER JOIN employee ON salary.employeeId =employee.id ORDER BY salary.id";
         Connection connection = ConnectionFactory.getConnection();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(QUERY);
@@ -34,7 +35,7 @@ public class SalaryDaoImpl implements SalaryDao {
         while (resultSet.next()) {
             Salary salary = new Salary();
             salary.setId(resultSet.getInt("id"));
-            salary.setEmployeeId(resultSet.getInt("employeeId"));
+            salary.setEmployeeName(resultSet.getString("employeeName"));
             salary.setBasicSalary(resultSet.getInt("basicSalary"));
             salary.setAllowance(resultSet.getInt("allowance"));
             salaries.add(salary);
