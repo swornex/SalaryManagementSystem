@@ -58,6 +58,7 @@ public class AddUpdateSalary extends HttpServlet {
             if (id != null) {
                 salary.setId(Integer.parseInt(id));
                 result = salaryDao.update(salary);
+                session.removeAttribute("id");
             } else {
                 EmployeeDao employeeDao = new EmployeeDaoImpl();
                 Employee employee = employeeDao.findOne(Integer.parseInt(employeeId));
