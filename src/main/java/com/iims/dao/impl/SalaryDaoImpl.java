@@ -65,11 +65,12 @@ public class SalaryDaoImpl implements SalaryDao {
 
     @Override
     public int update(Salary salary) throws SQLException, ClassNotFoundException {
-        final String QUERY = "UPDATE salary SET (basicSalary, allowance) VALUES (?, ?)";
+        final String QUERY = "UPDATE salary SET basicSalary = ?, allowance = ? WHERE id = ?";
         Connection connection = ConnectionFactory.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
         preparedStatement.setInt(1, salary.getBasicSalary());
         preparedStatement.setInt(2, salary.getAllowance());
+        preparedStatement.setInt(3, salary.getId());
         return preparedStatement.executeUpdate();
     }
 
