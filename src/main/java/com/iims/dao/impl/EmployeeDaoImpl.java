@@ -50,4 +50,26 @@ public class EmployeeDaoImpl implements EmployeeDao {
         return employees;
     }
 
+    @Override
+    public Employee findOne(int id) throws SQLException, ClassNotFoundException {
+        final String QUERY = "SELECT * FROM employee WHERE id = ?";
+        Connection connection = ConnectionFactory.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        Employee employee = null;
+
+        while (resultSet.next()) {
+            employee = new Employee();
+
+            employee.setId(resultSet.getInt("id"));
+            employee.setName(resultSet.getString("name"));
+            employee.setAddress(resultSet.getString("address").split(",")[0]);
+            employee.setContact(resultSet.getLong("contact"));
+            employee.setDepartmentName(resultSet.getString("departmentName"));
+        }
+
+        return employee;
+    }
 }

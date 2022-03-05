@@ -51,6 +51,11 @@ public class Salary {
         this.allowance = allowance;
     }
 
+    public Salary(int basicSalary, int allowance){
+        this.basicSalary = basicSalary;
+        this.allowance = allowance;
+    }
+
     @Override
     public String toString() {
         return "Salary{" +
