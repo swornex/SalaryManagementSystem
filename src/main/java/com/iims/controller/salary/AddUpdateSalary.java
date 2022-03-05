@@ -41,15 +41,14 @@ public class AddUpdateSalary extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String id = req.getParameter("id");
+        HttpSession session = req.getSession();
+        String id = (String) session.getAttribute("id");
         int employeeId = Integer.parseInt(req.getParameter("employeeId"));
         int basicSalary = Integer.parseInt(req.getParameter("basicSalary"));
         int allowance = Integer.parseInt(req.getParameter("allowance"));
 
         Salary salary = new Salary(employeeId, basicSalary, allowance);
         int result = 0;
-
-        HttpSession session = req.getSession();
 
         try {
             if (id != null) {
