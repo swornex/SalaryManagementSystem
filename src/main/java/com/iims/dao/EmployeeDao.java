@@ -9,4 +9,6 @@ public interface EmployeeDao {
     int save(Employee employee) throws SQLException, ClassNotFoundException;
 
     List<Employee> findAll() throws SQLException, ClassNotFoundException;
+
+    Employee findOne(int id) throws SQLException, ClassNotFoundException;
 }

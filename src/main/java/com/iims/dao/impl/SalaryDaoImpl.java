@@ -7,7 +7,6 @@ import com.iims.models.Salary;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 public class SalaryDaoImpl implements SalaryDao {
     @Override
@@ -46,6 +45,26 @@ public class SalaryDaoImpl implements SalaryDao {
     @Override
     public Salary findOne(int id) throws SQLException, ClassNotFoundException {
         final String QUERY = "SELECT * FROM salary WHERE id = ?";
+        Connection connection = ConnectionFactory.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        Salary salary = null;
+
+        while (resultSet.next()) {
+            salary = new Salary();
+            salary.setId(resultSet.getInt("id"));
+            salary.setEmployeeId(resultSet.getInt("employeeId"));
+            salary.setBasicSalary(resultSet.getInt("basicSalary"));
+            salary.setAllowance(resultSet.getInt("allowance"));
+        }
+
+        return salary;
+    }
+
+    @Override
+    public Salary findOneByEmployeeId(int id) throws SQLException, ClassNotFoundException {
+        final String QUERY = "SELECT * FROM salary WHERE employeeId = ?";
         Connection connection = ConnectionFactory.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
         preparedStatement.setInt(1, id);
