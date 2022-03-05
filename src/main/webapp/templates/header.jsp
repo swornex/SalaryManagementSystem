@@ -21,10 +21,14 @@
 </head>
 <body class="bg-light">
 <div class="container w-75">
-    <div class="d-flex justify-content-end pt-3">
-        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"></button>
-        <div class="dropdown-menu">
-            <a href="#" class="dropdown-item">Logout</a>
+    <c:if test="${admin != null}">
+        <div class="d-flex justify-content-end pt-3">
+            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">Hello ${admin.name}!
+            </button>
+            <div class="dropdown-menu">
+                <a href="logout" class="dropdown-item">Logout</a>
+            </div>
+
         </div>
-    </div>
+    </c:if>
 </div>

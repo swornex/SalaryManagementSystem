@@ -1,4 +1,6 @@
 <%@include file="templates/header.jsp"%>
+<%@include file="templates/isLoggedIn.jsp"%>
+
 <div class="container vh-100 d-flex align-items-center">
     <div class="login-wrapper mx-auto d-flex align-items-center justify-content-center flex-row">
         <img src="assets/img/money_income.svg" class="me-5" style="width:450px" alt="money-income">

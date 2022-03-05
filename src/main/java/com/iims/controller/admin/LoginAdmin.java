@@ -51,7 +51,7 @@ public class LoginAdmin extends HttpServlet {
                 e.printStackTrace();
             }
         } else {
-            session.setAttribute("error", "Please enter your username and password.");
+            session.setAttribute("error", "Enter username and password.");
             resp.sendRedirect("./");
         }
     }

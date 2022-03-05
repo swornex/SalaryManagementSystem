@@ -1,4 +1,5 @@
 <%@include file="/templates/header.jsp" %>
+<%@include file="/templates/isLoggedIn.jsp"%>
 
 <h2 class="text-center mt-4 mx-auto text-muted fw-normal">Salary List</h2>
 <div class="container w-75 my-4">
