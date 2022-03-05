@@ -8,17 +8,17 @@
             <c:if test="${action != 'Update'}">
                 <div class="col-md align-self-center mb-3">
                     <label class="form-label">Employee Id:</label>
-                    <input type="text" class="form-control" value="${salary.employeeId}" placeholder="1" name="employeeId">
+                    <input type="text" class="form-control" value="${salary.employeeId}" placeholder="1" name="employeeId" required>
                 </div>
             </c:if>
             <div class="col-md align-self-center mb-3">
                 <label class="form-label">Basic Salary </label>
                 <input type="text" class="form-control" value="${salary.basicSalary}" placeholder="5000"
-                       name="basicSalary">
+                       name="basicSalary" required>
             </div>
             <div class="col-md align-self-center mb-3">
                 <label class="form-label">Allowance:</label>
-                <input type="text" class="form-control" value="${salary.allowance}" placeholder="10000" name="allowance">
+                <input type="text" class="form-control" value="${salary.allowance}" placeholder="10000" name="allowance" required>
             </div>
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-dark" style="width:100%">${action}</button>
